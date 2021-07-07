@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.cvitirinyu.codingchallenge.starwars.data.model.StarWarsMission
+import com.cvitirinyu.codingchallenge.starwars.data.database.entities.StarWarsMission
 import com.cvitirinyu.codingchallenge.starwars.databinding.ListItemMissionBinding
 
 /**
