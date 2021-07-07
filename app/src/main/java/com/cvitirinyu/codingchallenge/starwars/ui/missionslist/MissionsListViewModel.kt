@@ -16,10 +16,8 @@ class MissionsListViewModel(
     val starWarsMissions: LiveData<List<StarWarsMission>> = _starWarsMissions
 
     init {
-        android.util.Log.v("AAAAAAAAA", "Look where i am")
         viewModelScope.launch {
             val response = starWarsMissionsRepository.fetchMissions()
-            android.util.Log.v("AAAAAAAAA", response.isSuccessful.toString())
             if (response.isSuccessful){
 
                 if(response.body() != null) {
