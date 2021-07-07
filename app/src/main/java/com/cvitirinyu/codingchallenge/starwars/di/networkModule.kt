@@ -1,6 +1,6 @@
 package com.cvitirinyu.codingchallenge.starwars.di
 
-import com.cvitirinyu.codingchallenge.starwars.data.api.ApiInterface
+import com.cvitirinyu.codingchallenge.starwars.data.network.api.ApiInterface
 import com.cvitirinyu.codingchallenge.starwars.utilities.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

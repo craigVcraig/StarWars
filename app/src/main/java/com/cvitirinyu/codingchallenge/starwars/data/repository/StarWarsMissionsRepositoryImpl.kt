@@ -1,9 +1,11 @@
 package com.cvitirinyu.codingchallenge.starwars.data.repository
 
-import com.cvitirinyu.codingchallenge.starwars.data.api.ApiInterface
+import com.cvitirinyu.codingchallenge.starwars.data.network.api.ApiInterface
 import com.cvitirinyu.codingchallenge.starwars.data.database.dao.MissionsDao
 import com.cvitirinyu.codingchallenge.starwars.data.database.entities.StarWarsMission
-import com.cvitirinyu.codingchallenge.starwars.data.model.StarWarsMissionResponse
+import com.cvitirinyu.codingchallenge.starwars.data.network.model.StarWarsMissionResponse
+import com.cvitirinyu.codingchallenge.starwars.utilities.toDbModel
+import com.cvitirinyu.codingchallenge.starwars.utilities.toRequiredDateFormat
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -31,17 +33,5 @@ class StarWarsMissionsRepositoryImpl(
             }
         }
         return missionsFromDb
-    }
-
-    private fun StarWarsMissionResponse.toDbModel() : StarWarsMission {
-        return StarWarsMission(
-            id = this.id,
-            title = title,
-            description = description,
-            date = date,
-            image = image,
-            locationLineOne = locationLineOne,
-            locationLineTwo = locationLineTwo,
-        )
     }
 }
