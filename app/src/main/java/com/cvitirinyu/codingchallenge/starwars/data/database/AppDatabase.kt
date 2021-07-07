@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.cvitirinyu.codingchallenge.starwars.data.database.dao.MissionsDao
-import com.cvitirinyu.codingchallenge.starwars.data.model.StarWarsMission
+import com.cvitirinyu.codingchallenge.starwars.data.database.entities.StarWarsMission
 import com.cvitirinyu.codingchallenge.starwars.utilities.DATABASE_NAME
 
 @Database(entities = [StarWarsMission::class], version = 1, exportSchema = false)

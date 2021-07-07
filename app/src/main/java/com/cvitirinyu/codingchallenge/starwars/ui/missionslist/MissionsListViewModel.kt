@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cvitirinyu.codingchallenge.starwars.data.model.StarWarsMission
+import com.cvitirinyu.codingchallenge.starwars.data.database.entities.StarWarsMission
 import com.cvitirinyu.codingchallenge.starwars.data.repository.StarWarsMissionsRepository
 import kotlinx.coroutines.launch
 
@@ -18,12 +18,15 @@ class MissionsListViewModel(
     init {
         viewModelScope.launch {
             val response = starWarsMissionsRepository.fetchMissions()
-            if (response.isSuccessful){
+            android.util.Log.v("TTTTTTTTTTTTT", response.toString())
 
-                if(response.body() != null) {
-                    _starWarsMissions.value = response.body()
-                }
-            }
+            _starWarsMissions.value = response
+//            if (response.isSuccessful){
+//
+//                if(response.body() != null) {
+//                    _starWarsMissions.value = response.body()
+//                }
+//            }
         }
     }
 }

@@ -4,9 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "missions_table")
-data class StarWarsMission (
-    @PrimaryKey(autoGenerate = false)
+data class StarWarsMissionResponse (
     @SerializedName("id")
     val id: Int,
     @SerializedName("description")

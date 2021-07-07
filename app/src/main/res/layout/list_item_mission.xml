@@ -10,12 +10,12 @@
             type="android.view.View.OnClickListener"/>
         <variable
             name="mission"
-            type="com.cvitirinyu.codingchallenge.starwars.data.model.StarWarsMission"/>
+            type="com.cvitirinyu.codingchallenge.starwars.data.database.entities.StarWarsMission"/>
     </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="210dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:onClick="@{clickListener}"
         app:cardCornerRadius="8dp"
@@ -60,10 +60,13 @@
                 android:text="@{mission.title}"
                 android:fontFamily="@font/roboto_regular"
                 android:textSize="24sp"
+                android:ellipsize="end"
+                android:maxEms="22"
+                android:maxLines="1"
                 tools:text="Death Star Ventilation"/>
 
             <TextView
-                android:id="@+id/list_item_mission_location"
+                android:id="@+id/list_item_mission_location_one"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_medium"
@@ -73,7 +76,19 @@
                 android:textColor="@color/white"
                 android:text="@{mission.locationLineOne}"
                 android:layout_marginTop="16dp"
-                tools:text="Conference RM 1289"/>
+                tools:text="Hoth"/>
+
+            <TextView
+                android:id="@+id/list_item_mission_location_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/list_item_mission_location_one"
+                android:textColor="@color/white"
+                android:text="@{mission.locationLineTwo}"
+                tools:text="Anoat System"/>
 
             <TextView
                 android:id="@+id/list_item_mission_description"
@@ -81,11 +96,14 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/list_item_mission_location"
+                app:layout_constraintTop_toBottomOf="@id/list_item_mission_location_two"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:text="@{mission.description}"
                 android:layout_marginTop="16dp"
+                android:ellipsize="end"
+                android:maxEms="78"
+                android:maxLines="2"
                 tools:text="Rebel Forces spoot on Hoth. Quell their rebellion for the Empire."/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

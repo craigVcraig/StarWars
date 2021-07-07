@@ -1,8 +1,7 @@
 package com.cvitirinyu.codingchallenge.starwars.data.repository
 
-import com.cvitirinyu.codingchallenge.starwars.data.model.StarWarsMission
-import retrofit2.Response
+import com.cvitirinyu.codingchallenge.starwars.data.database.entities.StarWarsMission
 
 interface StarWarsMissionsRepository {
-    suspend fun fetchMissions(): Response<List<StarWarsMission>>
+    suspend fun fetchMissions():List<StarWarsMission>
 }
