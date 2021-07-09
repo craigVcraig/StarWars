@@ -1,5 +1,6 @@
 package com.cvitirinyu.codingchallenge.starwars.data.database.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -14,5 +15,6 @@ interface MissionsDao {
     @Query("SELECT * FROM missions_table")
     suspend fun getAllMissions(): List<StarWarsMission>
 
-  // TODO: Use Flow
+    @Query("SELECT * FROM missions_table WHERE id = :missionId")
+    fun getMission(missionId: Int): LiveData<StarWarsMission>
 }

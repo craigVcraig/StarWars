@@ -13,6 +13,8 @@ data class StarWarsMissionResponse (
     val timestamp: String? = null,
     @SerializedName("image")
     val image: String? = null,
+    @SerializedName("phone")
+    val phone: String? = null,
     @SerializedName("date")
     val date: String? = null,
     @SerializedName("locationline1")

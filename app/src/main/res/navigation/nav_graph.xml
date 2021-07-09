@@ -9,6 +9,21 @@
         android:id="@+id/mission_list_fragment"
         android:name="com.cvitirinyu.codingchallenge.starwars.ui.missionslist.MissionsListFragment"
         android:label="missionListFragment"
-        tools:layout="@layout/fragment_missions_list"/>
+        tools:layout="@layout/fragment_missions_list">
+        <action
+            android:id="@+id/action_listFragment_to_detailsFragment"
+            app:destination="@id/mission_details_fragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/mission_details_fragment"
+        android:name="com.cvitirinyu.codingchallenge.starwars.ui.missiondetails.MissionDetailsFragment"
+        android:label="missionDetailsFragment"
+        tools:layout="@layout/fragment_mission_details">
+        <argument
+            android:name="missionId"
+            app:argType="integer"
+            app:nullable="false"/>
+    </fragment>
 
 </navigation>

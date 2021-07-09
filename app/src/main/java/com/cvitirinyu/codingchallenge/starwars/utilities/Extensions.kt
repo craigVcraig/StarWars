@@ -14,6 +14,7 @@ fun StarWarsMissionResponse.toDbModel() : StarWarsMission {
         description = description,
         date = date.toRequiredDateFormat(),
         image = image,
+        phone = phone,
         locationLineOne = locationLineOne,
         locationLineTwo = locationLineTwo,
     )
