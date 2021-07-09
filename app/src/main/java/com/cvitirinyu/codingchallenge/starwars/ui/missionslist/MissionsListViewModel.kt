@@ -17,16 +17,8 @@ class MissionsListViewModel(
 
     init {
         viewModelScope.launch {
-            val response = starWarsMissionsRepository.fetchMissions()
-            android.util.Log.v("TTTTTTTTTTTTT", response.toString())
-
+            val response = starWarsMissionsRepository.getAllMissions()
             _starWarsMissions.value = response
-//            if (response.isSuccessful){
-//
-//                if(response.body() != null) {
-//                    _starWarsMissions.value = response.body()
-//                }
-//            }
         }
     }
 }

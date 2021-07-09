@@ -1,5 +1,6 @@
 package com.cvitirinyu.codingchallenge.starwars.data.repository
 
+import androidx.lifecycle.LiveData
 import com.cvitirinyu.codingchallenge.starwars.data.network.api.ApiInterface
 import com.cvitirinyu.codingchallenge.starwars.data.database.dao.MissionsDao
 import com.cvitirinyu.codingchallenge.starwars.data.database.entities.StarWarsMission
@@ -14,7 +15,7 @@ class StarWarsMissionsRepositoryImpl(
     private val missionsDao: MissionsDao
 ) : StarWarsMissionsRepository{
 
-    override suspend fun fetchMissions(): List<StarWarsMission> {
+    override suspend fun getAllMissions(): List<StarWarsMission> {
 
         var missionsFromDb = missionsDao.getAllMissions()
 
@@ -33,5 +34,9 @@ class StarWarsMissionsRepositoryImpl(
             }
         }
         return missionsFromDb
+    }
+
+    override fun getMission(missionId: Int): LiveData<StarWarsMission> {
+        return missionsDao.getMission(missionId)
     }
 }

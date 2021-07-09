@@ -10,6 +10,7 @@ data class StarWarsMission (
         val description: String? = null,
         val title: String? = null,
         val image: String? = null,
+        val phone: String? = null,
         val date: String? = null,
         val locationLineOne: String? = null,
         val locationLineTwo: String? = null
