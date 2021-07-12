@@ -5,8 +5,3 @@ sealed class ServiceResult<out R> {
     object Error : ServiceResult<Nothing>()
     data class NetworkException(val exception: Exception) : ServiceResult<Nothing>()
 }
-
-fun <T> ServiceResult<T>.handleSuccessTask(task: (T) -> Unit): ServiceResult<T> {
-    if (this is ServiceResult.Success) task.invoke(this.data)
-    return this
-}
