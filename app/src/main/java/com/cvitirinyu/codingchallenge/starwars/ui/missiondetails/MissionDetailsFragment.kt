@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import com.cvitirinyu.codingchallenge.starwars.MainActivity
 import com.cvitirinyu.codingchallenge.starwars.R
 import com.cvitirinyu.codingchallenge.starwars.data.database.entities.StarWarsMission
 import com.cvitirinyu.codingchallenge.starwars.databinding.FragmentMissionDetailsBinding
@@ -16,10 +17,10 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class MissionDetailsFragment : Fragment() {
 
-    private lateinit var viewModel: MissionDetailsViewModel
-    private val navArgs: MissionDetailsFragmentArgs by navArgs()
-    private lateinit var binding: FragmentMissionDetailsBinding
     private lateinit var missionDetails: StarWarsMission
+    private lateinit var viewModel: MissionDetailsViewModel
+    private lateinit var binding: FragmentMissionDetailsBinding
+    private val navArgs: MissionDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,8 +42,8 @@ class MissionDetailsFragment : Fragment() {
     private fun subscribeUi() {
         viewModel.getMission(navArgs.missionId).observe(viewLifecycleOwner, Observer { mission ->
             binding.mission = mission
-            binding.missionDetailsProgressbar.visibility = View.INVISIBLE
             missionDetails = mission
+            binding.missionDetailsProgressbar.visibility = View.INVISIBLE
         })
     }
 
@@ -50,28 +51,27 @@ class MissionDetailsFragment : Fragment() {
 
         binding.missionDetailsToolbar.inflateMenu(R.menu.menu_mission_details)
 
-        /* back icon */
-        binding.missionDetailsToolbar.setNavigationIcon(R.drawable.ic_back)
-        binding.missionDetailsToolbar.setNavigationOnClickListener {
-            requireActivity().onBackPressed()
+        /* adding back icon */
+        binding.missionDetailsToolbar.apply {
+            setNavigationIcon(R.drawable.ic_back)
+            setNavigationOnClickListener {
+                requireActivity().onBackPressed()
+            }
         }
 
-        /* respond to click events */
+        /* responding to menu click events */
         binding.missionDetailsToolbar.setOnMenuItemClickListener { menu ->
             when (menu.itemId) {
                 R.id.menu_item_call -> {
-                    //(activity as MainActivity).handleMenuCallEvent(missionDetails.phone)
-
                     val intent = Intent(Intent.ACTION_DIAL).apply {
                         val number = missionDetails.phone ?: ""
                         data = Uri.parse("tel: $number")
                     }
                     startActivity(intent)
-
                     true
                 }
                 R.id.menu_item_share -> {
-                    prepareShareIntent()
+                    shareMission()
                     true
                 }
                 else -> false
@@ -80,7 +80,7 @@ class MissionDetailsFragment : Fragment() {
     }
 
 
-    private fun prepareShareIntent() {
+    private fun shareMission() {
 
 //        val imgBitmap = binding.missionDetailsToolbarImg.drawable.toBitmap()
 //        var imageUri: Uri? = null
@@ -106,6 +106,7 @@ class MissionDetailsFragment : Fragment() {
             putExtra(Intent.EXTRA_TEXT, missionDetails.locationLineTwo)
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
+
         startActivity(Intent.createChooser(shareIntent, "share mission"))
     }
 }
