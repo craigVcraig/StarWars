@@ -5,6 +5,6 @@ import com.cvitirinyu.codingchallenge.starwars.ui.missionslist.MissionsListViewM
 import org.koin.dsl.module
 
 val viewModelModule = module {
-   single { MissionsListViewModel(starWarsMissionsRepository = get()) }
-   single { MissionDetailsViewModel(starWarsMissionsRepository = get()) }
+    single { MissionsListViewModel(starWarsMissionsRepository = get()) }
+    single { MissionDetailsViewModel(starWarsMissionsRepository = get()) }
 }

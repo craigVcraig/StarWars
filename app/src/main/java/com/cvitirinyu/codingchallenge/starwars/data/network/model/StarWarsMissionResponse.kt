@@ -2,7 +2,7 @@ package com.cvitirinyu.codingchallenge.starwars.data.network.model
 
 import com.google.gson.annotations.SerializedName
 
-data class StarWarsMissionResponse (
+data class StarWarsMissionResponse(
     @SerializedName("id")
     val id: Int,
     @SerializedName("description")

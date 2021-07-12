@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
     </data>
 
@@ -18,22 +19,21 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:titleTextColor="@android:color/white"
-                android:background="#00407f">
+                android:background="@color/congress_blue"
+                app:titleTextColor="@android:color/white">
 
                 <TextView
                     android:id="@+id/toolbar_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Phun App"
-                    android:fontFamily="@font/roboto_medium"
-                    android:textSize="20sp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginTop="16dp"
-                    android:textColor="@android:color/white"
                     android:layout_gravity="start"
-                    />
+                    android:layout_marginStart="@dimen/margin_xlg"
+                    android:layout_marginTop="@dimen/margin_lg"
+                    android:layout_marginBottom="@dimen/margin_lg"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/phun_app"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/font_lg" />
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -43,12 +43,18 @@
             android:id="@+id/missions_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/mine_shaft"
             android:clipToPadding="false"
             android:orientation="vertical"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:background="#282828"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+            android:paddingStart="@dimen/padding_md"
+            android:paddingEnd="@dimen/padding_md"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <ProgressBar
+            android:id="@+id/mission_list_progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

@@ -11,16 +11,17 @@ import com.cvitirinyu.codingchallenge.starwars.utilities.DATABASE_NAME
 @Database(entities = [StarWarsMission::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun missionsDao() : MissionsDao
+    abstract fun missionsDao(): MissionsDao
 
     companion object {
 
         // For Singleton Instantiation
-        @Volatile private var instance: AppDatabase? = null
+        @Volatile
+        private var instance: AppDatabase? = null
 
         operator fun invoke(context: Context): AppDatabase {
             return instance ?: synchronized(this) {
-                instance ?: buildDatabase(context).also { instance = it}
+                instance ?: buildDatabase(context).also { instance = it }
             }
         }
 
@@ -30,7 +31,5 @@ abstract class AppDatabase : RoomDatabase() {
                 AppDatabase::class.java,
                 DATABASE_NAME
             ).build()
-
-        // possibly prepopulate database as you make it
     }
 }

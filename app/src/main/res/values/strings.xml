@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">StarWars</string>
+    <string name="mission_details_collapsing_toolbar_image_description">mission details page: collapsing toolbar image</string>
+    <string name="phun_app">Phun App</string>
+    <string name="mission_item_background_image_description">mission item background image</string>
 </resources>

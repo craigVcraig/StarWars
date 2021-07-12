@@ -32,7 +32,7 @@ class MissionAdapter: ListAdapter<StarWarsMission, RecyclerView.ViewHolder>(Miss
 
     class MissionViewHolder(
         private val binding: ListItemMissionBinding
-    ): RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.setClickListener {
                 binding.mission?.let { mission ->
@@ -42,7 +42,8 @@ class MissionAdapter: ListAdapter<StarWarsMission, RecyclerView.ViewHolder>(Miss
         }
 
         private fun navigateToMissionDetails(missionId: Int, view: View) {
-            val direction = MissionsListFragmentDirections.actionListFragmentToDetailsFragment(missionId)
+            val direction =
+                MissionsListFragmentDirections.actionListFragmentToDetailsFragment(missionId)
             view.findNavController().navigate(direction)
         }
 

@@ -14,13 +14,14 @@ import com.cvitirinyu.codingchallenge.starwars.databinding.FragmentMissionsListB
 class MissionsListFragment : Fragment() {
 
     private val viewModel: MissionsListViewModel by viewModel()
+    private lateinit var binding: FragmentMissionsListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentMissionsListBinding.inflate(inflater, container, false)
+        binding = FragmentMissionsListBinding.inflate(inflater, container, false)
         context ?: return binding.root
 
         val adapter = MissionAdapter()
@@ -33,9 +34,10 @@ class MissionsListFragment : Fragment() {
         return binding.root
     }
 
-    private fun subscribeUi(adapter: MissionAdapter){
-            viewModel.starWarsMissions.observe(viewLifecycleOwner, Observer { missions ->
-                adapter.submitList(missions)
-            })
+    private fun subscribeUi(adapter: MissionAdapter) {
+        viewModel.starWarsMissions.observe(viewLifecycleOwner, Observer { missions ->
+            adapter.submitList(missions)
+            binding.missionListProgressbar.visibility = View.INVISIBLE
+        })
     }
 }
