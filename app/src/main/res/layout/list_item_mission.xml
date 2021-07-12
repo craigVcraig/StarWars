@@ -16,10 +16,10 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/margin_lg"
         android:onClick="@{clickListener}"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp">
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:cardElevation="@dimen/card_elevation">
 
         <ImageView
             android:id="@+id/list_item_background_img"
@@ -28,14 +28,12 @@
             app:imageFromUrl="@{mission.image}"
             android:scaleType="centerCrop"
             android:background="@drawable/bg_gradient"
-            android:contentDescription="background image" />
+            android:contentDescription="@string/mission_item_background_image_description" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="24dp">
-
-
+            android:padding="@dimen/padding_lg">
 
             <TextView
                 android:id="@+id/list_item_mission_date"
@@ -45,9 +43,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:textColor="@color/white"
                 android:fontFamily="@font/roboto_medium"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="@dimen/margin_md"
                 android:text="@{mission.date}"
-                android:textSize="14sp"
+                android:textSize="@dimen/font_xxsm"
                 tools:text="May 4, 2015 at 4:30pm"/>
 
             <TextView
@@ -56,11 +54,11 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/list_item_mission_date"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/margin_sm"
                 android:textColor="@color/white"
                 android:text="@{mission.title}"
                 android:fontFamily="@font/roboto_regular"
-                android:textSize="24sp"
+                android:textSize="@dimen/font_xlg"
                 android:ellipsize="end"
                 android:maxEms="22"
                 android:maxLines="1"
@@ -71,12 +69,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_medium"
-                android:textSize="14sp"
+                android:textSize="@dimen/font_xxsm"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/list_item_mission_title"
                 android:textColor="@color/white"
                 android:text="@{mission.locationLineOne}"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/margin_lg"
                 tools:text="Hoth"/>
 
             <TextView
@@ -84,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_medium"
-                android:textSize="14sp"
+                android:textSize="@dimen/font_xxsm"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/list_item_mission_location_one"
                 android:textColor="@color/white"
@@ -99,16 +97,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/list_item_mission_location_two"
                 android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textSize="@dimen/font_sm"
                 android:text="@{mission.description}"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/margin_lg"
                 android:ellipsize="end"
                 android:maxEms="78"
                 android:maxLines="2"
                 tools:text="Rebel Forces spoot on Hoth. Quell their rebellion for the Empire."/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </androidx.cardview.widget.CardView>
 

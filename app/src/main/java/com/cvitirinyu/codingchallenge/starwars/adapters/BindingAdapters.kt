@@ -8,11 +8,11 @@ import com.cvitirinyu.codingchallenge.starwars.R
 
 @BindingAdapter("imageFromUrl")
 fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
-        Glide.with(view.context)
-            .load(imageUrl)
-            .centerCrop()
-            .placeholder(R.drawable.placeholder_nomoon)
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .into(view)
+    Glide.with(view.context)
+        .load(imageUrl)
+        .centerCrop()
+        .placeholder(R.drawable.placeholder_nomoon)
+        .diskCacheStrategy(DiskCacheStrategy.ALL)
+        .into(view)
 
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- common font dimensions -->
+    <dimen name="font_xxsm">14sp</dimen>
+    <dimen name="font_xsm">15sp</dimen>
+    <dimen name="font_sm">16sp</dimen>
+    <dimen name="font_md">17sp</dimen>
+    <dimen name="font_lg">20sp</dimen>
+    <dimen name="font_xlg">24sp</dimen>
+    <dimen name="font_xxlg">28sp</dimen>
+
+    <!-- common card dimensions -->
+    <dimen name="card_corner_radius">8dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
+
+    <!-- common margin dimensions -->
+    <dimen name="margin_sm">8dp</dimen>
+    <dimen name="margin_md">12dp</dimen>
+    <dimen name="margin_lg">16dp</dimen>
+    <dimen name="margin_xlg">24dp</dimen>
+
+    <!-- common padding dimensions -->
+    <dimen name="padding_md">16dp</dimen>
+    <dimen name="padding_lg">24dp</dimen>
+</resources>

@@ -3,11 +3,12 @@ package com.cvitirinyu.codingchallenge.starwars.utilities
 import com.cvitirinyu.codingchallenge.starwars.data.database.entities.StarWarsMission
 import com.cvitirinyu.codingchallenge.starwars.data.network.model.StarWarsMissionResponse
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.TimeZone
+import java.util.Locale
 
 val GMT_TIME_ZONE: TimeZone = TimeZone.getTimeZone("GMT")
 
-fun StarWarsMissionResponse.toDbModel() : StarWarsMission {
+fun StarWarsMissionResponse.toDbModel(): StarWarsMission {
     return StarWarsMission(
         id = this.id,
         title = title,
@@ -27,7 +28,7 @@ fun String?.toRequiredDateFormat(): String {
             timeZone = GMT_TIME_ZONE
         ).parse(it) ?: ""
 
-        val outFormat = createSimpleDataFormat( "MMM d, yyyy 'at' h:mma", TimeZone.getDefault())
+        val outFormat = createSimpleDataFormat("MMM d, yyyy 'at' h:mma", TimeZone.getDefault())
 
         outFormat
             .format(parseDate)
