@@ -1,6 +1,7 @@
 package com.cvitirinyu.codingchallenge.starwars.di
 
 import com.cvitirinyu.codingchallenge.starwars.data.network.NetworkCallHandler
+import com.cvitirinyu.codingchallenge.starwars.data.network.NetworkCallHandlerImpl
 import com.cvitirinyu.codingchallenge.starwars.data.network.api.ApiInterface
 import com.cvitirinyu.codingchallenge.starwars.utilities.BASE_URL
 import okhttp3.OkHttpClient
@@ -26,8 +27,8 @@ val networkModule = module {
         .build()
         .create(ApiInterface::class.java)
 
-    /* creates a retrofit singleton */
+
     single<ApiInterface> { retrofit }
-    single { NetworkCallHandler() }
+    single<NetworkCallHandler> { NetworkCallHandlerImpl() }
 
 }
