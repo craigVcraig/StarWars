@@ -6,6 +6,10 @@ import org.koin.dsl.module
 
 val repositoryModule = module {
     single<StarWarsMissionsRepository> {
-        StarWarsMissionsRepositoryImpl(apiInterface = get(), missionsDao = get())
+        StarWarsMissionsRepositoryImpl(
+            apiInterface = get(),
+            missionsDao = get(),
+            networkCallHandler = get()
+        )
     }
 }
