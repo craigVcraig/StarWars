@@ -1,6 +1,9 @@
 package com.cvitirinyu.codingchallenge.starwars.ui.missionslist
 
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,9 +30,9 @@ class MissionsListFragment : Fragment() {
         val adapter = MissionAdapter()
         binding.apply {
             missionsList.adapter = adapter
-            missionsList.layoutManager = LinearLayoutManager(requireContext())
             lifecycleOwner = viewLifecycleOwner
         }
+
         subscribeUi(adapter)
         return binding.root
     }
