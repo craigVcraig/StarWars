@@ -19,14 +19,11 @@
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            android:fitsSystemWindows="true">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
                 app:expandedTitleMarginStart="@dimen/margin_xlg"
                 app:expandedTitleMarginEnd="@dimen/margin_xlg"
                 app:layout_scrollFlags="scroll|enterAlways">

@@ -1,7 +1,10 @@
 package com.cvitirinyu.codingchallenge.starwars.adapters
 
+import android.graphics.Rect
+import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.cvitirinyu.codingchallenge.starwars.R
@@ -19,4 +22,10 @@ fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
         .diskCacheStrategy(DiskCacheStrategy.ALL)
         .into(view)
 
+}
+
+@BindingAdapter("decorateItems")
+fun RecyclerView.decorateItems(spacing: Int) {
+    val itemDecoration = SpacesItemDecoration(spacing)
+    addItemDecoration(itemDecoration)
 }
