@@ -81,32 +81,20 @@ class MissionDetailsFragment : Fragment() {
 
 
     private fun shareMission() {
-
-//        val imgBitmap = binding.missionDetailsToolbarImg.drawable.toBitmap()
-//        var imageUri: Uri? = null
-//        try {
-//            val file = File(Environment.getStorageDirectory(), "share_img" + System.currentTimeMillis() + ".png")
-//            val out = FileOutputStream(file)
-//            imgBitmap.compress(Bitmap.CompressFormat.PNG, 90, out)
-//            out.close()
-//            imageUri = Uri.fromFile(file)
-//        } catch (exception: Exception) {
-//            android.util.Log.e("Error:", exception.message.toString())
-//        }
-
-        val shareIntent = Intent(Intent.ACTION_SEND).apply {
+        val missionArray =
+            arrayListOf<String>(
+                " title:  ${missionDetails.title}",
+                " description: ${missionDetails.description}",
+                " imageUrl: ${missionDetails.image}",
+                " date:  ${missionDetails.date}",
+                " phone:  ${missionDetails.phone}",
+                " locationLineOne: ${missionDetails.locationLineOne}",
+                " locationLineTwo: ${missionDetails.locationLineTwo}"
+            )
+        val shareIntent = Intent(Intent.ACTION_SEND_MULTIPLE).apply {
             type = "text/*"
-            data = Uri.parse("mailto:")
-            data = Uri.parse("smsto:")
-            //  putExtra(Intent.EXTRA_STREAM, imageUri)
-            putExtra(Intent.EXTRA_TITLE, missionDetails.title)
-            putExtra(Intent.EXTRA_TEXT, missionDetails.description)
-            putExtra(Intent.EXTRA_TEXT, missionDetails.date)
-            putExtra(Intent.EXTRA_TEXT, missionDetails.locationLineOne)
-            putExtra(Intent.EXTRA_TEXT, missionDetails.locationLineTwo)
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+           putExtra(Intent.EXTRA_TEXT, missionArray)
         }
-
         startActivity(Intent.createChooser(shareIntent, "share mission"))
     }
 }
